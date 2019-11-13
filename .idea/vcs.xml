@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="VcsDirectoryMappings">
+    <mapping directory="$PROJECT_DIR$" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/Paper" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/Paper/Paper-API" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/Paper/Paper-Server" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/Paper/work/BuildData" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/Paper/work/Bukkit" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/Paper/work/CraftBukkit" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/Paper/work/Paperclip" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/Paper/work/Spigot" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/Paper/work/Spigot/Spigot-API" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/Paper/work/Spigot/Spigot-Server" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/Pulsar-API" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/Pulsar-Server" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/mc-dev" vcs="Git" />
+  </component>
+</project>

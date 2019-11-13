@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/Pulsar-Server/pulsar.iml" filepath="$PROJECT_DIR$/Pulsar-Server/pulsar.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Pulsar-API/pulsar-api.iml" filepath="$PROJECT_DIR$/Pulsar-API/pulsar-api.iml" />
+      <module fileurl="file://$PROJECT_DIR$/pulsar-parent.iml" filepath="$PROJECT_DIR$/pulsar-parent.iml" />
+    </modules>
+  </component>
+</project>
