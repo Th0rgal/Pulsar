@@ -1,22 +1,17 @@
 <project>
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>com.empireminecraft</groupId>
-    <artifactId>empirecraft-parent</artifactId>
-    <version>dev-1.12-R0.1-SNAPSHOT</version>
+    <groupId>io.th0rgal</groupId>
+    <artifactId>pulsar-parent</artifactId>
+    <version>dev-SNAPSHOT</version>
     <packaging>pom</packaging>
-    <name>EmpireCraft (Parent)</name>
+    <name>Pulsar (Parent)</name>
 
     <properties>
-        <repo>http://empireminecraft.com/nexus/content/repositories/empireminecraft</repo>
         <skipTests>true</skipTests>
     </properties>
 
     <repositories>
-        <repository>
-            <id>empireminecraft</id>
-            <url>https://repo.aikar.co/content/groups/public/</url>
-        </repository>
         <repository>
             <id>aikar</id>
             <url>https://repo.aikar.co/content/repositories/aikar/</url>
@@ -28,7 +23,7 @@
         <finalName>${project.artifactId}</finalName>
     </build>
     <modules>
-        <module>EmpireCraft-API</module>
-        <module>EmpireCraft-Server</module>
+        <module>Pulsar-API</module>
+        <module>Pulsar-Server</module>
     </modules>
 </project>
