@@ -1,0 +1,25 @@
+From a12a6c07c081095df19d79c0fd9b84b5ac6276c2 Mon Sep 17 00:00:00 2001
+From: Th0rgal <thomas.marchand44@gmail.com>
+Date: Wed, 13 Nov 2019 22:04:47 +0100
+Subject: [PATCH] :wrench: fix indentation
+
+---
+ pom.xml | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/pom.xml b/pom.xml
+index 40c6a327..6d985d61 100644
+--- a/pom.xml
++++ b/pom.xml
+@@ -22,7 +22,7 @@
+ 
+     <parent>
+         <groupId>io.th0rgal</groupId>
+-       <artifactId>pulsar-parent</artifactId>
++        <artifactId>pulsar-parent</artifactId>
+         <version>dev-SNAPSHOT</version>
+         <relativePath>../pom.xml</relativePath>
+     </parent>
+-- 
+2.22.0.windows.1
+

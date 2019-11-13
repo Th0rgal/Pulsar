@@ -1,0 +1,34 @@
+From bfbf1ea4a1273752db85fe311849e7805e400558 Mon Sep 17 00:00:00 2001
+From: Th0rgal <thomas.marchand44@gmail.com>
+Date: Wed, 13 Nov 2019 22:01:54 +0100
+Subject: [PATCH] wrench: configures pulsar build
+
+---
+ pom.xml | 8 ++++----
+ 1 file changed, 4 insertions(+), 4 deletions(-)
+
+diff --git a/pom.xml b/pom.xml
+index 5088c331..470c1b0c 100644
+--- a/pom.xml
++++ b/pom.xml
+@@ -8,13 +8,13 @@
+         <version>dev-SNAPSHOT</version>
+     </parent>
+ 
+-    <groupId>com.destroystokyo.paper</groupId>
+-    <artifactId>paper-api</artifactId>
++    <groupId>io.th0rgal</groupId>
++    <artifactId>pulsar-api</artifactId>
+     <version>1.14.4-R0.1-SNAPSHOT</version>
+     <packaging>jar</packaging>
+ 
+-    <name>Paper-API</name>
+-    <url>https://github.com/PaperMC/Paper</url>
++    <name>Pulsar-API</name>
++    <url>https://pulsarmc.io</url>
+     <description>An enhanced plugin API for Minecraft servers.</description>
+ 
+     <properties>
+-- 
+2.22.0.windows.1
+
