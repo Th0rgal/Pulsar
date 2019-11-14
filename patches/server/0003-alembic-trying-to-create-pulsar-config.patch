@@ -1,7 +1,7 @@
-From 2c69b71eba4c93d3b7ec006cf5449b91cf9e23cd Mon Sep 17 00:00:00 2001
+From 512ebbe3f0db3ce64b7af758421c8279c21e9003 Mon Sep 17 00:00:00 2001
 From: Th0rgal <thomas.marchand44@gmail.com>
 Date: Thu, 14 Nov 2019 21:41:41 +0100
-Subject: [PATCH] :alembic: trying to create pulsar config
+Subject: [PATCH] alembic: trying to create pulsar config
 
 ---
  src/main/java/io/th0rgal/pulsar/PulsarConfig.java | 4 ++++

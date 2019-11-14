@@ -1,0 +1,148 @@
+From 2100df8233fd2ed43dfd93279ca8846c702afb95 Mon Sep 17 00:00:00 2001
+From: Th0rgal <thomas.marchand44@gmail.com>
+Date: Thu, 14 Nov 2019 21:54:04 +0100
+Subject: [PATCH] :zap: optimizes paper default configuration (should be better
+ for most servers)
+
+---
+ .../destroystokyo/paper/PaperWorldConfig.java | 34 +++++++++----------
+ 1 file changed, 17 insertions(+), 17 deletions(-)
+
+diff --git a/src/main/java/com/destroystokyo/paper/PaperWorldConfig.java b/src/main/java/com/destroystokyo/paper/PaperWorldConfig.java
+index 3e5571f7..7345a59e 100644
+--- a/src/main/java/com/destroystokyo/paper/PaperWorldConfig.java
++++ b/src/main/java/com/destroystokyo/paper/PaperWorldConfig.java
+@@ -110,8 +110,8 @@ public class PaperWorldConfig {
+     public int softDespawnDistance;
+     public int hardDespawnDistance;
+     private void despawnDistances() {
+-        softDespawnDistance = getInt("despawn-ranges.soft", 32); // 32^2 = 1024, Minecraft Default
+-        hardDespawnDistance = getInt("despawn-ranges.hard", 128); // 128^2 = 16384, Minecraft Default
++        softDespawnDistance = getInt("despawn-ranges.soft", 28); // 32^2 = 1024, Minecraft Default
++        hardDespawnDistance = getInt("despawn-ranges.hard", 96); // 128^2 = 16384, Minecraft Default
+ 
+         if (softDespawnDistance > hardDespawnDistance) {
+             softDespawnDistance = hardDespawnDistance;
+@@ -162,7 +162,7 @@ public class PaperWorldConfig {
+ 
+     public boolean optimizeExplosions;
+     private void optimizeExplosions() {
+-        optimizeExplosions = getBoolean("optimize-explosions", false);
++        optimizeExplosions = getBoolean("optimize-explosions", true);
+         log("Optimize explosions: " + optimizeExplosions);
+     }
+ 
+@@ -183,17 +183,17 @@ public class PaperWorldConfig {
+ 
+     public int mobSpawnerTickRate;
+     private void mobSpawnerTickRate() {
+-        mobSpawnerTickRate = getInt("mob-spawner-tick-rate", 1);
++        mobSpawnerTickRate = getInt("mob-spawner-tick-rate", 2);
+     }
+ 
+     public int containerUpdateTickRate;
+     private void containerUpdateTickRate() {
+-        containerUpdateTickRate = getInt("container-update-tick-rate", 1);
++        containerUpdateTickRate = getInt("container-update-tick-rate", 3);
+     }
+ 
+     public boolean disableChestCatDetection;
+     private void disableChestCatDetection() {
+-        disableChestCatDetection = getBoolean("game-mechanics.disable-chest-cat-detection", false);
++        disableChestCatDetection = getBoolean("game-mechanics.disable-chest-cat-detection", true);
+     }
+ 
+     public boolean disablePlayerCrits;
+@@ -229,11 +229,11 @@ public class PaperWorldConfig {
+     public int nonPlayerArrowDespawnRate = -1;
+     public int creativeArrowDespawnRate = -1;
+     private void nonPlayerArrowDespawnRate() {
+-        nonPlayerArrowDespawnRate = getInt("non-player-arrow-despawn-rate", -1);
++        nonPlayerArrowDespawnRate = getInt("non-player-arrow-despawn-rate", 60);
+         if (nonPlayerArrowDespawnRate == -1) {
+             nonPlayerArrowDespawnRate = spigotConfig.arrowDespawnRate;
+         }
+-        creativeArrowDespawnRate = getInt("creative-arrow-despawn-rate", -1);
++        creativeArrowDespawnRate = getInt("creative-arrow-despawn-rate", 60);
+         if (creativeArrowDespawnRate == -1) {
+             creativeArrowDespawnRate = spigotConfig.arrowDespawnRate;
+         }
+@@ -281,7 +281,7 @@ public class PaperWorldConfig {
+         fixedInhabitedTime = getInt("fixed-chunk-inhabited-time", -1);
+     }
+ 
+-    public int grassUpdateRate = 1;
++    public int grassUpdateRate = 4;
+     private void grassUpdateRate() {
+         grassUpdateRate = Math.max(0, getInt("grass-spread-tick-rate", grassUpdateRate));
+         log("Grass Spread Tick Rate: " + grassUpdateRate);
+@@ -364,7 +364,7 @@ public class PaperWorldConfig {
+ 
+     public int maxCollisionsPerEntity;
+     private void maxEntityCollision() {
+-        maxCollisionsPerEntity = getInt( "max-entity-collisions", this.spigotConfig.getInt("max-entity-collisions", 8) );
++        maxCollisionsPerEntity = getInt( "max-entity-collisions", this.spigotConfig.getInt("max-entity-collisions", 2) );
+         log( "Max Entity Collisions: " + maxCollisionsPerEntity );
+     }
+ 
+@@ -392,7 +392,7 @@ public class PaperWorldConfig {
+     }
+ 
+     public boolean cooldownHopperWhenFull = true;
+-    public boolean disableHopperMoveEvents = false;
++    public boolean disableHopperMoveEvents = true;
+     private void hopperOptimizations() {
+         cooldownHopperWhenFull = getBoolean("hopper.cooldown-when-full", cooldownHopperWhenFull);
+         log("Cooldown Hoppers when Full: " + (cooldownHopperWhenFull ? "enabled" : "disabled"));
+@@ -438,7 +438,7 @@ public class PaperWorldConfig {
+         log("Water over lava flow speed: " + waterOverLavaFlowSpeed);
+     }
+ 
+-    public boolean armorStandTick = true;
++    public boolean armorStandTick = false;
+     private void armorStandTick() {
+         this.armorStandTick = this.getBoolean("armor-stands-tick", this.armorStandTick);
+         log("ArmorStand ticking is " + (this.armorStandTick ? "enabled" : "disabled") + " by default");
+@@ -446,10 +446,10 @@ public class PaperWorldConfig {
+ 
+     public boolean preventMovingIntoUnloadedChunks = false;
+     private void preventMovingIntoUnloadedChunks() {
+-        preventMovingIntoUnloadedChunks = getBoolean("prevent-moving-into-unloaded-chunks", false);
++        preventMovingIntoUnloadedChunks = getBoolean("prevent-moving-into-unloaded-chunks", true);
+     }
+ 
+-    public boolean useEigencraftRedstone = false;
++    public boolean useEigencraftRedstone = true;
+     private void useEigencraftRedstone() {
+         useEigencraftRedstone = this.getBoolean("use-faster-eigencraft-redstone", false);
+         if (useEigencraftRedstone) {
+@@ -516,7 +516,7 @@ public class PaperWorldConfig {
+ 
+     public int maxAutoSaveChunksPerTick = 24;
+     private void maxAutoSaveChunksPerTick() {
+-        maxAutoSaveChunksPerTick = getInt("max-auto-save-chunks-per-tick", 24);
++        maxAutoSaveChunksPerTick = getInt("max-auto-save-chunks-per-tick", 6);
+     }
+ 
+     public boolean countAllMobsForSpawning = false;
+@@ -604,7 +604,7 @@ public class PaperWorldConfig {
+         }
+         catch (Exception e) {
+             logError("alt-item-despawn-rate was malformatted");
+-            altItemDespawnRateEnabled = false;
++            altItemDespawnRateEnabled = true;
+         }
+ 
+         altItemDespawnRateMap = new EnumMap<>(Material.class);
+@@ -628,7 +628,7 @@ public class PaperWorldConfig {
+ 
+     public boolean perPlayerMobSpawns = false;
+     private void perPlayerMobSpawns() {
+-        perPlayerMobSpawns = getBoolean("per-player-mob-spawns", false);
++        perPlayerMobSpawns = getBoolean("per-player-mob-spawns", true);
+     }
+ 
+     public boolean generateFlatBedrock;
+-- 
+2.22.0.windows.1
+
