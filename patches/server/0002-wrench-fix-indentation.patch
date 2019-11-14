@@ -1,7 +1,7 @@
-From a12a6c07c081095df19d79c0fd9b84b5ac6276c2 Mon Sep 17 00:00:00 2001
+From 0075d2bb7dd94e0ed922a648593c2d72fe2748ce Mon Sep 17 00:00:00 2001
 From: Th0rgal <thomas.marchand44@gmail.com>
 Date: Wed, 13 Nov 2019 22:04:47 +0100
-Subject: [PATCH] :wrench: fix indentation
+Subject: [PATCH] wrench: fix indentation
 
 ---
  pom.xml | 2 +-

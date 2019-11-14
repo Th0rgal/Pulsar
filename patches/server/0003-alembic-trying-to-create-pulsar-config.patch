@@ -1,0 +1,23 @@
+From 2c69b71eba4c93d3b7ec006cf5449b91cf9e23cd Mon Sep 17 00:00:00 2001
+From: Th0rgal <thomas.marchand44@gmail.com>
+Date: Thu, 14 Nov 2019 21:41:41 +0100
+Subject: [PATCH] :alembic: trying to create pulsar config
+
+---
+ src/main/java/io/th0rgal/pulsar/PulsarConfig.java | 4 ++++
+ 1 file changed, 4 insertions(+)
+ create mode 100644 src/main/java/io/th0rgal/pulsar/PulsarConfig.java
+
+diff --git a/src/main/java/io/th0rgal/pulsar/PulsarConfig.java b/src/main/java/io/th0rgal/pulsar/PulsarConfig.java
+new file mode 100644
+index 00000000..81359d45
+--- /dev/null
++++ b/src/main/java/io/th0rgal/pulsar/PulsarConfig.java
+@@ -0,0 +1,4 @@
++package io.th0rgal.pulsar;
++
++public class PulsarConfig {
++}
+-- 
+2.22.0.windows.1
+

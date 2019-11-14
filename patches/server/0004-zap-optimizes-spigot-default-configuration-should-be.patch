@@ -1,0 +1,95 @@
+From 68716e6eb412917bb78e5f3d2f000d3d6aa8cdca Mon Sep 17 00:00:00 2001
+From: Th0rgal <thomas.marchand44@gmail.com>
+Date: Thu, 14 Nov 2019 21:46:03 +0100
+Subject: [PATCH] :zap: optimizes spigot default configuration (should be
+ better for most servers)
+
+---
+ src/main/java/org/spigotmc/SpigotConfig.java  |  2 +-
+ .../java/org/spigotmc/SpigotWorldConfig.java  | 20 +++++++++----------
+ 2 files changed, 11 insertions(+), 11 deletions(-)
+
+diff --git a/src/main/java/org/spigotmc/SpigotConfig.java b/src/main/java/org/spigotmc/SpigotConfig.java
+index 359a0c8a..9f02ab0d 100644
+--- a/src/main/java/org/spigotmc/SpigotConfig.java
++++ b/src/main/java/org/spigotmc/SpigotConfig.java
+@@ -331,7 +331,7 @@ public class SpigotConfig
+     public static boolean saveUserCacheOnStopOnly;
+     private static void saveUserCacheOnStopOnly()
+     {
+-        saveUserCacheOnStopOnly = getBoolean( "settings.save-user-cache-on-stop-only", false );
++        saveUserCacheOnStopOnly = getBoolean( "settings.save-user-cache-on-stop-only", true );
+     }
+ 
+     public static double movedWronglyThreshold;
+diff --git a/src/main/java/org/spigotmc/SpigotWorldConfig.java b/src/main/java/org/spigotmc/SpigotWorldConfig.java
+index 4feea10d..ccf9c21d 100644
+--- a/src/main/java/org/spigotmc/SpigotWorldConfig.java
++++ b/src/main/java/org/spigotmc/SpigotWorldConfig.java
+@@ -132,14 +132,14 @@ public class SpigotWorldConfig
+     public double itemMerge;
+     private void itemMerge()
+     {
+-        itemMerge = getDouble("merge-radius.item", 2.5 );
++        itemMerge = getDouble("merge-radius.item", 4.0 );
+         log( "Item Merge Radius: " + itemMerge );
+     }
+ 
+     public double expMerge;
+     private void expMerge()
+     {
+-        expMerge = getDouble("merge-radius.exp", 3.0 );
++        expMerge = getDouble("merge-radius.exp", 6.0 );
+         log( "Experience Merge Radius: " + expMerge );
+     }
+ 
+@@ -165,21 +165,21 @@ public class SpigotWorldConfig
+     public byte mobSpawnRange;
+     private void mobSpawnRange()
+     {
+-        mobSpawnRange = (byte) getInt( "mob-spawn-range", 8 ); // Paper - Vanilla
++        mobSpawnRange = (byte) getInt( "mob-spawn-range", 6 ); // Paper - Vanilla
+         log( "Mob Spawn Range: " + mobSpawnRange );
+     }
+ 
+     public int itemDespawnRate;
+     private void itemDespawnRate()
+     {
+-        itemDespawnRate = getInt( "item-despawn-rate", 6000 );
++        itemDespawnRate = getInt( "item-despawn-rate", 4000 );
+         log( "Item Despawn Rate: " + itemDespawnRate );
+     }
+ 
+-    public int animalActivationRange = 32;
+-    public int monsterActivationRange = 32;
++    public int animalActivationRange = 16;
++    public int monsterActivationRange = 24;
+     public int raiderActivationRange = 48;
+-    public int miscActivationRange = 16;
++    public int miscActivationRange = 8;
+     public boolean tickInactiveVillagers = true;
+     private void activationRange()
+     {
+@@ -225,7 +225,7 @@ public class SpigotWorldConfig
+     public int arrowDespawnRate;
+     private void arrowDespawnRate()
+     {
+-        arrowDespawnRate = getInt( "arrow-despawn-rate", 1200  );
++        arrowDespawnRate = getInt( "arrow-despawn-rate", 300  );
+         log( "Arrow Despawn Rate: " + arrowDespawnRate );
+     }
+ 
+@@ -334,8 +334,8 @@ public class SpigotWorldConfig
+     public int entityMaxTickTime;
+     private void maxTickTimes()
+     {
+-        tileMaxTickTime = getInt("max-tick-time.tile", 50);
+-        entityMaxTickTime = getInt("max-tick-time.entity", 50);
++        tileMaxTickTime = getInt("max-tick-time.tile", 1000);
++        entityMaxTickTime = getInt("max-tick-time.entity", 1000);
+         log("Tile Max Tick Time: " + tileMaxTickTime + "ms Entity max Tick Time: " + entityMaxTickTime + "ms");
+     }
+ 
+-- 
+2.22.0.windows.1
+
