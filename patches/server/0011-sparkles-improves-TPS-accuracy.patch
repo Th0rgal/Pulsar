@@ -1,0 +1,72 @@
+From 9a3bcbba37c0efe6c3a2b9b1bfaca16a169426d5 Mon Sep 17 00:00:00 2001
+From: Th0rgal <thomas.marchand44@gmail.com>
+Date: Sat, 16 Nov 2019 19:33:10 +0100
+Subject: [PATCH] :sparkles: improves TPS accuracy
+
+---
+ .../org/spigotmc/TicksPerSecondCommand.java   | 29 +++++++++----------
+ 1 file changed, 14 insertions(+), 15 deletions(-)
+
+diff --git a/src/main/java/org/spigotmc/TicksPerSecondCommand.java b/src/main/java/org/spigotmc/TicksPerSecondCommand.java
+index 6d21c326..5e945de0 100644
+--- a/src/main/java/org/spigotmc/TicksPerSecondCommand.java
++++ b/src/main/java/org/spigotmc/TicksPerSecondCommand.java
+@@ -4,22 +4,18 @@ import org.bukkit.ChatColor;
+ import org.bukkit.command.Command;
+ import org.bukkit.command.CommandSender;
+ 
+-public class TicksPerSecondCommand extends Command
+-{
++public class TicksPerSecondCommand extends Command {
+ 
+-    public TicksPerSecondCommand(String name)
+-    {
+-        super( name );
++    public TicksPerSecondCommand(String name) {
++        super(name);
+         this.description = "Gets the current ticks per second for the server";
+         this.usageMessage = "/tps";
+-        this.setPermission( "bukkit.command.tps" );
++        this.setPermission("bukkit.command.tps");
+     }
+ 
+     @Override
+-    public boolean execute(CommandSender sender, String currentAlias, String[] args)
+-    {
+-        if ( !testPermission( sender ) )
+-        {
++    public boolean execute(CommandSender sender, String currentAlias, String[] args) {
++        if (!testPermission(sender)) {
+             return true;
+         }
+ 
+@@ -27,10 +23,10 @@ public class TicksPerSecondCommand extends Command
+         double[] tps = org.bukkit.Bukkit.getTPS();
+         String[] tpsAvg = new String[tps.length];
+ 
+-        for ( int i = 0; i < tps.length; i++) {
+-            tpsAvg[i] = format( tps[i] );
++        for (int i = 0; i < tps.length; i++) {
++            tpsAvg[i] = format(tps[i]);
+         }
+-        sender.sendMessage( ChatColor.GOLD + "TPS from last 1m, 5m, 15m: " + org.apache.commons.lang.StringUtils.join(tpsAvg, ", "));
++        sender.sendMessage(ChatColor.GOLD + "TPS from last 1m, 5m, 15m: " + org.apache.commons.lang.StringUtils.join(tpsAvg, ", "));
+         // Paper end
+ 
+         return true;
+@@ -38,7 +34,10 @@ public class TicksPerSecondCommand extends Command
+ 
+     private static String format(double tps) // Paper - Made static
+     {
+-        return ( ( tps > 18.0 ) ? ChatColor.GREEN : ( tps > 16.0 ) ? ChatColor.YELLOW : ChatColor.RED ).toString()
+-                + ( ( tps > 20.0 ) ? "*" : "" ) + Math.min( Math.round( tps * 100.0 ) / 100.0, 20.0 );
++        String color = ((tps > 18.0) ? ChatColor.GREEN : (tps > 16.0) ? ChatColor.YELLOW : ChatColor.RED).toString()
++                + ((tps > 20.0) ? "*" : "");
++        if (tps > 20)
++            tps = 20.0;
++        return color + tps;
+     }
+ }
+-- 
+2.22.0.windows.1
+

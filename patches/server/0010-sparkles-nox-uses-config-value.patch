@@ -1,7 +1,7 @@
-From 4d62d2dc5642775f5f7712f42301c51844632de5 Mon Sep 17 00:00:00 2001
+From 40cb7f868e27fc22adb7910d4a192f0b30771a4f Mon Sep 17 00:00:00 2001
 From: Th0rgal <thomas.marchand44@gmail.com>
 Date: Sat, 16 Nov 2019 19:23:23 +0100
-Subject: [PATCH] :sparkles: nox uses config value
+Subject: [PATCH] sparkles: nox uses config value
 
 ---
  src/main/java/net/minecraft/server/MinecraftServer.java | 3 ++-
