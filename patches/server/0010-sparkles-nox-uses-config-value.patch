@@ -1,0 +1,33 @@
+From 4d62d2dc5642775f5f7712f42301c51844632de5 Mon Sep 17 00:00:00 2001
+From: Th0rgal <thomas.marchand44@gmail.com>
+Date: Sat, 16 Nov 2019 19:23:23 +0100
+Subject: [PATCH] :sparkles: nox uses config value
+
+---
+ src/main/java/net/minecraft/server/MinecraftServer.java | 3 ++-
+ 1 file changed, 2 insertions(+), 1 deletion(-)
+
+diff --git a/src/main/java/net/minecraft/server/MinecraftServer.java b/src/main/java/net/minecraft/server/MinecraftServer.java
+index 29be9ab4..98ddfc42 100644
+--- a/src/main/java/net/minecraft/server/MinecraftServer.java
++++ b/src/main/java/net/minecraft/server/MinecraftServer.java
+@@ -15,6 +15,7 @@ import com.mojang.datafixers.DataFixer;
+ import io.netty.buffer.ByteBuf;
+ import io.netty.buffer.ByteBufOutputStream;
+ import io.netty.buffer.Unpooled;
++import io.th0rgal.pulsar.PulsarConfig;
+ import it.unimi.dsi.fastutil.longs.LongIterator;
+ import java.awt.GraphicsEnvironment;
+ import java.awt.image.BufferedImage;
+@@ -1462,7 +1463,7 @@ public abstract class MinecraftServer extends IAsyncTaskHandlerReentrant<TickTas
+     }
+ 
+     public String getServerModName() {
+-        return "Pulsar"; // Pulsar - Pulsar == //Paper - Paper > // Spigot - Spigot > // CraftBukkit - cb > vanilla!
++        return PulsarConfig.serverModName; // Pulsar - Pulsar == //Paper - Paper > // Spigot - Spigot > // CraftBukkit - cb > vanilla!
+     }
+ 
+     public CrashReport b(CrashReport crashreport) {
+-- 
+2.22.0.windows.1
+

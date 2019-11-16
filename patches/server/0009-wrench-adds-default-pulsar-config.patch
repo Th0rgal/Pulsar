@@ -1,7 +1,7 @@
-From e62fcf7480352141341fd408306b5d3f315d8a01 Mon Sep 17 00:00:00 2001
+From 1dc79c56de437a3fdf7179f79de26629f2cc282c Mon Sep 17 00:00:00 2001
 From: Th0rgal <thomas.marchand44@gmail.com>
 Date: Sat, 16 Nov 2019 16:03:31 +0100
-Subject: [PATCH] :wrench: adds default pulsar config
+Subject: [PATCH] wrench: adds default pulsar config
 
 ---
  .../java/net/minecraft/server/DedicatedServer.java     | 10 ++++++++++
