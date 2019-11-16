@@ -1,7 +1,7 @@
-From 4f75b1eecf64bf08f7d6059b18ee7d0d854f9bfa Mon Sep 17 00:00:00 2001
+From 8a08c4f61def5b2f110047e33082fc09620b8cb5 Mon Sep 17 00:00:00 2001
 From: Th0rgal <thomas.marchand44@gmail.com>
 Date: Sat, 16 Nov 2019 15:54:44 +0100
-Subject: [PATCH] :wrench: adds default pulsar config
+Subject: [PATCH] wrench: adds default pulsar config
 
 ---
  .../java/io/th0rgal/pulsar/PulsarConfig.java  | 174 +++++++++++++++++-

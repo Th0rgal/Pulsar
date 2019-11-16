@@ -1,0 +1,40 @@
+From e62fcf7480352141341fd408306b5d3f315d8a01 Mon Sep 17 00:00:00 2001
+From: Th0rgal <thomas.marchand44@gmail.com>
+Date: Sat, 16 Nov 2019 16:03:31 +0100
+Subject: [PATCH] :wrench: adds default pulsar config
+
+---
+ .../java/net/minecraft/server/DedicatedServer.java     | 10 ++++++++++
+ 1 file changed, 10 insertions(+)
+
+diff --git a/src/main/java/net/minecraft/server/DedicatedServer.java b/src/main/java/net/minecraft/server/DedicatedServer.java
+index 5bc19cd0..36f11a36 100644
+--- a/src/main/java/net/minecraft/server/DedicatedServer.java
++++ b/src/main/java/net/minecraft/server/DedicatedServer.java
+@@ -24,6 +24,8 @@ import java.util.concurrent.ExecutionException;
+ import java.util.function.BooleanSupplier;
+ import java.util.regex.Pattern;
+ import javax.annotation.Nullable;
++
++import io.th0rgal.pulsar.PulsarConfig;
+ import org.apache.logging.log4j.LogManager;
+ import org.apache.logging.log4j.Logger;
+ 
+@@ -186,6 +188,14 @@ public class DedicatedServer extends MinecraftServer implements IMinecraftServer
+         com.destroystokyo.paper.PaperConfig.registerCommands();
+         com.destroystokyo.paper.VersionHistoryManager.INSTANCE.getClass(); // load version history now
+         // Paper end
++        // Pulsar start
++        try {
++            PulsarConfig.init((File) options.valueOf("pulsar-settings"));
++        } catch (Exception e) {
++            DedicatedServer.LOGGER.error("Unable to load server configuration", e);
++            return false;
++        }
++        // Pulsar end
+ 
+         this.setSpawnAnimals(dedicatedserverproperties.spawnAnimals);
+         this.setSpawnNPCs(dedicatedserverproperties.spawnNpcs);
+-- 
+2.22.0.windows.1
+

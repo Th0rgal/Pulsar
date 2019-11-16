@@ -1,7 +1,7 @@
-From 40c687383a086d0cc3bfb76fa6b724fec091ad8f Mon Sep 17 00:00:00 2001
+From 927dc49e92e9ad77406148bbfb3db800a8b413a4 Mon Sep 17 00:00:00 2001
 From: Th0rgal <thomas.marchand44@gmail.com>
 Date: Sat, 16 Nov 2019 15:36:13 +0100
-Subject: [PATCH] :alembic: updates metrics
+Subject: [PATCH] alembic: updates metrics
 
 ---
  src/main/java/com/destroystokyo/paper/Metrics.java | 2 +-
